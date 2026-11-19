@@ -2,21 +2,21 @@
 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
 -->
 
-# 数据库变更记录（cheney_database.md）
+# 数据库变更记录（wenxin_database.md）
 
 > 说明：本文件按执行顺序追加记录所有建库、建表、插入数据语句，仅凭本文件即可在新机器上完整重建数据库。
-> 数据库：MySQL 8.x，库名 `cheney_zhihu`，字符集 `utf8mb4`。
+> 数据库：MySQL 8.x，库名 `wenxin_zhihu`，字符集 `utf8mb4`。
 
-## 2026-11-19 21:00 建库与建表（Cheney_news / Cheney_gallery）
+## 2026-11-19 21:00 建库与建表（wenxin_news / wenxin_gallery）
 
 ```sql
-CREATE DATABASE IF NOT EXISTS `cheney_zhihu`
+CREATE DATABASE IF NOT EXISTS `wenxin_zhihu`
   DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
-USE `cheney_zhihu`;
+USE `wenxin_zhihu`;
 
 -- 科技新闻表
-CREATE TABLE IF NOT EXISTS `Cheney_news` (
+CREATE TABLE IF NOT EXISTS `wenxin_news` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '新闻ID',
   `title` VARCHAR(200) NOT NULL COMMENT '新闻标题',
   `summary` VARCHAR(500) NOT NULL COMMENT '新闻摘要',
@@ -28,11 +28,11 @@ CREATE TABLE IF NOT EXISTS `Cheney_news` (
   `publish_time` DATETIME NOT NULL COMMENT '发布时间',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`),
-  KEY `idx_cheney_news_publish` (`publish_time`)
+  KEY `idx_wenxin_news_publish` (`publish_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='科技新闻表';
 
 -- 图文列表表
-CREATE TABLE IF NOT EXISTS `Cheney_gallery` (
+CREATE TABLE IF NOT EXISTS `wenxin_gallery` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '图文ID',
   `title` VARCHAR(200) NOT NULL COMMENT '图文标题',
   `description` VARCHAR(500) NOT NULL COMMENT '图文描述',
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `Cheney_gallery` (
 ## 2026-11-19 21:05 插入科技新闻测试数据（10 条）
 
 ```sql
-USE `cheney_zhihu`;
+USE `wenxin_zhihu`;
 
-INSERT INTO `Cheney_news` (`title`, `summary`, `content`, `source`, `author`, `category`, `views`, `publish_time`) VALUES
+INSERT INTO `wenxin_news` (`title`, `summary`, `content`, `source`, `author`, `category`, `views`, `publish_time`) VALUES
 ('国产开源大模型刷新代码生成榜单纪录', '新一代国产开源大模型在主流代码生成评测集中超过同参数量级模型，推理速度提升 40%。', '国产开源大模型团队今日发布最新版本，在 HumanEval 与 MBPP 两项代码生成评测中分别取得 92.1% 与 88.7% 的成绩，刷新同参数量级开源模型纪录。官方表示，新版本通过改进数据配比与强化学习策略，在保持推理速度提升 40% 的同时显著降低了幻觉率。目前模型权重已在开源社区开放下载，支持中文、英文等 26 种编程语言。', '科技前线', '陈默', '人工智能', 15230, '2026-11-19 09:20:00'),
 ('新一代 AI 芯片实现能效比翻倍', '采用 3nm 工艺与存算一体架构，单卡推理性能达到上一代的两倍，功耗下降 35%。', '国内芯片企业今日发布新一代数据中心 AI 加速卡。该芯片采用 3nm 制程与存算一体架构，在典型大模型推理场景下性能较上一代提升约 2 倍，整卡功耗下降 35%。厂商透露，首批产品已交付多家云计算服务商，配套的编译器与算子库同步开源，方便开发者迁移现有模型。', '芯片观察', '李维', '硬件', 9832, '2026-11-19 08:45:00'),
 ('量子计算原型机完成千比特纠缠实验', '研究团队实现 1024 个超导量子比特的稳定纠缠，相干时间创国内新高。', '由多家科研院所联合组成的团队宣布，其超导量子计算原型机成功实现 1024 个量子比特的稳定纠缠，纠缠保真度达到 99.2%，量子相干时间较上一代提升近三倍。专家认为，该成果为大规模量子纠错与专用量子模拟奠定了关键基础，但在通用量子计算方向仍需长期攻关。', '科学新知', '周岚', '前沿科学', 7421, '2026-11-18 19:10:00'),
@@ -66,9 +66,9 @@ INSERT INTO `Cheney_news` (`title`, `summary`, `content`, `source`, `author`, `c
 ## 2026-11-19 21:10 插入图文列表测试数据（8 条）
 
 ```sql
-USE `cheney_zhihu`;
+USE `wenxin_zhihu`;
 
-INSERT INTO `Cheney_gallery` (`title`, `description`, `image_url`, `category`, `author`, `likes`) VALUES
+INSERT INTO `wenxin_gallery` (`title`, `description`, `image_url`, `category`, `author`, `likes`) VALUES
 ('算力之城的夜晚', '成排的 AI 服务器机柜在冷蓝光下运转，液冷管道的反光像城市的街道。', 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=futuristic%20artificial%20intelligence%20server%20room%20with%20glowing%20blue%20neon%20lights%2C%20glass%20floor%20reflections%2C%20cinematic%20wide%20shot%2C%20photorealistic&image_size=landscape_4_3', '人工智能', '陈默', 328),
 ('第一次握手', '当机械手指与人类手掌相触，人机协作的边界又向前推进了一厘米。', 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=humanoid%20robot%20hand%20touching%20human%20hand%2C%20soft%20studio%20lighting%2C%20close%20up%2C%20high%20detail%2C%20photorealistic&image_size=landscape_4_3', '机器人', '孙超', 512),
 ('指甲盖上的世界', '一颗先进制程芯片的微观结构，导线密如城市路网。', 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=macro%20shot%20of%20advanced%20semiconductor%20chip%20on%20circuit%20board%2C%20golden%20pins%2C%20blue%20light%2C%20ultra%20detailed&image_size=landscape_4_3', '硬件', '李维', 276),
@@ -78,3 +78,19 @@ INSERT INTO `Cheney_gallery` (`title`, `description`, `image_url`, `category`, `
 ('客厅里的另一个世界', '戴上头显，家里的沙发成了通往虚拟空间的第一级台阶。', 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=person%20wearing%20VR%20headset%20in%20bright%20modern%20living%20room%2C%20colorful%20light%2C%20lifestyle%20photography&image_size=landscape_4_3', '数字生活', '何青', 358),
 ('数据在城市上空流动', '夜里十一点，写字楼顶的信号灯比星星更亮。', 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=smart%20city%20skyline%20at%20night%20with%20glowing%20data%20network%20lines%20above%20buildings%2C%20aerial%20view%2C%20futuristic&image_size=landscape_4_3', '智慧城市', '顾言', 477);
 ```
+
+## 2026-11-19 22:10 规范命名：库名与表名统一为 wenxin_ 前缀
+
+```sql
+-- 将原 cheney_zhihu 库及 Cheney_* 表迁移为 wenxin_ 命名，数据保持原样
+CREATE DATABASE IF NOT EXISTS `wenxin_zhihu`
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+RENAME TABLE `cheney_zhihu`.`Cheney_news` TO `wenxin_zhihu`.`wenxin_news`,
+             `cheney_zhihu`.`Cheney_gallery` TO `wenxin_zhihu`.`wenxin_gallery`;
+
+DROP DATABASE `cheney_zhihu`;
+```
+
+> 迁移结果：`wenxin_zhihu` 库下 `wenxin_news` 10 条、`wenxin_gallery` 8 条，数据完整。
+

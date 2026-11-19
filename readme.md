@@ -21,7 +21,7 @@
 ├─ AGENTS.md                 # 项目开发规则
 ├─ readme.md                 # 项目说明（本文件）
 ├─ start_backend.bat         # 一键启动后端
-├─ Cheney_prompt.md          # 提示词记录
+├─ wenxin_prompt.md          # 提示词记录
 ├─ frontend/                 # 前端（原生三件套）
 │  ├─ index.html             # 首页：Canvas 背景动画 + 页面导航
 │  ├─ database.html          # 数据库连接测试
@@ -32,8 +32,8 @@
    ├─ app.js                 # 入口，端口 8328
    ├─ config/  controllers/  models/  routes/
    ├─ .env                   # 数据库凭据（已加入 .gitignore）
-   ├─ Cheney_interface.md    # 接口记录
-   └─ Cheney_database.md     # 数据库记录（可完整重建库表）
+   ├─ wenxin_interface.md    # 接口记录
+   └─ wenxin_database.md     # 数据库记录（可完整重建库表）
 ```
 
 ## 启动方式
@@ -53,6 +53,6 @@
 
 ## 数据库
 
-- 库名：`cheney_zhihu`，字符集 `utf8mb4`
-- 数据表：`Cheney_news`（科技新闻，10 条测试数据）、`Cheney_gallery`（图文列表，8 条测试数据）
-- 建库、建表与测试数据语句见 `backend/Cheney_database.md`
+- 库名：`wenxin_zhihu`，字符集 `utf8mb4`
+- 数据表：`wenxin_news`（科技新闻，10 条测试数据）、`wenxin_gallery`（图文列表，8 条测试数据）
+- 建库、建表与测试数据语句见 `backend/wenxin_database.md`

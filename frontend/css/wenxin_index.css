@@ -2,14 +2,14 @@
  姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
  文件说明：首页样式（深色画布背景、项目信息、页面导航卡片）
 */
-.Cheney_indexBody {
+.wenxin_indexBody {
   min-height: 100vh;
   background: radial-gradient(ellipse at 20% 0%, #12335c 0%, #08172b 45%, #050e1b 100%);
   color: #e8f1ff;
   overflow-x: hidden;
 }
 
-.Cheney_canvas {
+.wenxin_canvas {
   position: fixed;
   inset: 0;
   width: 100%;
@@ -19,40 +19,40 @@
   pointer-events: none;
 }
 
-.Cheney_indexBody .Cheney_nav {
+.wenxin_indexBody .wenxin_nav {
   position: relative;
   z-index: 2;
   background: rgba(8, 23, 43, 0.6);
   border-bottom: 1px solid rgba(140, 190, 255, 0.14);
 }
 
-.Cheney_indexBody .Cheney_navBrand {
+.wenxin_indexBody .wenxin_navBrand {
   color: #eaf3ff;
 }
 
-.Cheney_indexBody .Cheney_navLink {
+.wenxin_indexBody .wenxin_navLink {
   color: rgba(208, 226, 250, 0.78);
 }
 
-.Cheney_indexBody .Cheney_navLink:hover,
-.Cheney_indexBody .Cheney_navLink.isActive {
+.wenxin_indexBody .wenxin_navLink:hover,
+.wenxin_indexBody .wenxin_navLink.isActive {
   color: #ffffff;
   background: rgba(0, 102, 255, 0.28);
 }
 
-.Cheney_indexMain {
+.wenxin_indexMain {
   position: relative;
   z-index: 2;
   padding-bottom: 20px;
 }
 
 /* ========== 项目信息 ========== */
-.Cheney_hero {
+.wenxin_hero {
   padding: 72px 0 48px;
   max-width: 880px;
 }
 
-.Cheney_heroBadge {
+.wenxin_heroBadge {
   display: inline-block;
   padding: 6px 14px;
   border-radius: 999px;
@@ -64,7 +64,7 @@
   letter-spacing: 1px;
 }
 
-.Cheney_heroTitle {
+.wenxin_heroTitle {
   margin: 0 0 18px;
   font-size: clamp(34px, 5vw, 56px);
   line-height: 1.15;
@@ -75,20 +75,20 @@
   color: transparent;
 }
 
-.Cheney_heroDesc {
+.wenxin_heroDesc {
   margin: 0 0 34px;
   max-width: 720px;
   color: rgba(198, 219, 245, 0.82);
   font-size: 16px;
 }
 
-.Cheney_heroInfo {
+.wenxin_heroInfo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
 }
 
-.Cheney_infoItem {
+.wenxin_infoItem {
   padding: 14px 18px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
@@ -96,14 +96,14 @@
   backdrop-filter: blur(6px);
 }
 
-.Cheney_infoLabel {
+.wenxin_infoLabel {
   display: block;
   font-size: 12px;
   color: rgba(160, 190, 230, 0.75);
   letter-spacing: 0.5px;
 }
 
-.Cheney_infoValue {
+.wenxin_infoValue {
   display: block;
   margin-top: 4px;
   font-size: 15px;
@@ -112,11 +112,11 @@
 }
 
 /* ========== 区块 ========== */
-.Cheney_section {
+.wenxin_section {
   margin-top: 44px;
 }
 
-.Cheney_sectionHead {
+.wenxin_sectionHead {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -125,7 +125,7 @@
   flex-wrap: wrap;
 }
 
-.Cheney_sectionTitle {
+.wenxin_sectionTitle {
   position: relative;
   margin: 0;
   padding-left: 14px;
@@ -133,7 +133,7 @@
   color: #f2f8ff;
 }
 
-.Cheney_sectionTitle::before {
+.wenxin_sectionTitle::before {
   content: "";
   position: absolute;
   left: 0;
@@ -145,19 +145,19 @@
   background: linear-gradient(180deg, #4d9bff, #0066ff);
 }
 
-.Cheney_sectionHint {
+.wenxin_sectionHint {
   font-size: 13px;
   color: rgba(160, 190, 230, 0.65);
 }
 
 /* ========== 导航卡片 ========== */
-.Cheney_linkGrid {
+.wenxin_linkGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
 }
 
-.Cheney_linkCard {
+.wenxin_linkCard {
   position: relative;
   display: block;
   padding: 26px 24px 24px;
@@ -168,7 +168,7 @@
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.Cheney_linkCard::after {
+.wenxin_linkCard::after {
   content: "";
   position: absolute;
   top: -60px;
@@ -181,17 +181,17 @@
   transition: opacity 0.3s ease;
 }
 
-.Cheney_linkCard:hover {
+.wenxin_linkCard:hover {
   transform: translateY(-5px);
   border-color: rgba(122, 175, 255, 0.55);
   box-shadow: 0 18px 40px rgba(0, 30, 80, 0.5);
 }
 
-.Cheney_linkCard:hover::after {
+.wenxin_linkCard:hover::after {
   opacity: 1;
 }
 
-.Cheney_linkIcon {
+.wenxin_linkIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -204,26 +204,26 @@
   color: #8fc0ff;
 }
 
-.Cheney_linkTitle {
+.wenxin_linkTitle {
   margin: 0 0 8px;
   font-size: 18px;
   color: #f0f7ff;
 }
 
-.Cheney_linkDesc {
+.wenxin_linkDesc {
   margin: 0 0 18px;
   font-size: 13.5px;
   color: rgba(186, 209, 238, 0.8);
 }
 
-.Cheney_linkMore {
+.wenxin_linkMore {
   font-size: 13px;
   font-weight: 600;
   color: #7fb4ff;
 }
 
 /* ========== 页面清单 ========== */
-.Cheney_linkList {
+.wenxin_linkList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 10px 22px;
@@ -235,7 +235,7 @@
   border: 1px solid rgba(140, 190, 255, 0.14);
 }
 
-.Cheney_linkList a {
+.wenxin_linkList a {
   display: inline-block;
   padding: 4px 0;
   color: rgba(190, 216, 248, 0.9);
@@ -244,18 +244,18 @@
   transition: all 0.2s ease;
 }
 
-.Cheney_linkList a:hover {
+.wenxin_linkList a:hover {
   color: #ffffff;
   border-bottom-color: rgba(122, 175, 255, 0.6);
 }
 
-.Cheney_indexFooter {
+.wenxin_indexFooter {
   position: relative;
   z-index: 2;
   color: rgba(150, 180, 215, 0.7);
 }
 
-.Cheney_indexFooter code {
+.wenxin_indexFooter code {
   background: rgba(255, 255, 255, 0.08);
   color: #a9ccff;
 }

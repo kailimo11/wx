@@ -1,6 +1,6 @@
 <!--
  姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
- 文件说明：图文列表页面（数据来自 Cheney_gallery 表）
+ 文件说明：图文列表页面（数据来自 wenxin_gallery 表）
 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -8,51 +8,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>图文列表 | 知乎的模仿与制作</title>
-  <link rel="stylesheet" href="css/Cheney_common.css" />
-  <link rel="stylesheet" href="css/Cheney_gallery.css" />
+  <link rel="stylesheet" href="css/wenxin_common.css" />
+  <link rel="stylesheet" href="css/wenxin_gallery.css" />
 </head>
 <body>
-  <header class="Cheney_nav">
-    <div class="Cheney_navBrand">
-      <span class="Cheney_navLogo">知</span>
+  <header class="wenxin_nav">
+    <div class="wenxin_navBrand">
+      <span class="wenxin_navLogo">知</span>
       <span>知乎的模仿与制作</span>
     </div>
-    <nav class="Cheney_navLinks">
-      <a class="Cheney_navLink" href="index.html">首页</a>
-      <a class="Cheney_navLink" href="database.html">数据库测试</a>
-      <a class="Cheney_navLink" href="news.html">科技新闻</a>
-      <a class="Cheney_navLink isActive" href="gallery.html">图文列表</a>
+    <nav class="wenxin_navLinks">
+      <a class="wenxin_navLink" href="index.html">首页</a>
+      <a class="wenxin_navLink" href="database.html">数据库测试</a>
+      <a class="wenxin_navLink" href="news.html">科技新闻</a>
+      <a class="wenxin_navLink isActive" href="gallery.html">图文列表</a>
     </nav>
   </header>
 
-  <main class="Cheney_container">
-    <div class="Cheney_pageHead">
-      <h1 class="Cheney_pageTitle">图文列表</h1>
-      <p class="Cheney_pageDesc">图片与说明文字均来自 MySQL 数据库 <strong>Cheney_gallery</strong> 表，由后端接口返回。</p>
+  <main class="wenxin_container">
+    <div class="wenxin_pageHead">
+      <h1 class="wenxin_pageTitle">图文列表</h1>
+      <p class="wenxin_pageDesc">图片与说明文字均来自 MySQL 数据库 <strong>wenxin_gallery</strong> 表，由后端接口返回。</p>
     </div>
 
-    <div class="Cheney_apiBar">
-      <span class="Cheney_apiMethod">GET</span>
+    <div class="wenxin_apiBar">
+      <span class="wenxin_apiMethod">GET</span>
       <strong>后端接口：</strong>
-      <a class="Cheney_apiLink" id="Cheney_galleryApiLink" href="http://localhost:8328/api/gallery" target="_blank" rel="noopener">http://localhost:8328/api/gallery?page=1&amp;pageSize=12</a>
-      <button class="Cheney_jsonToggle" id="Cheney_galleryJsonToggle" type="button">查看原始数据（JSON）</button>
+      <a class="wenxin_apiLink" id="wenxin_galleryApiLink" href="http://localhost:8328/api/gallery" target="_blank" rel="noopener">http://localhost:8328/api/gallery?page=1&amp;pageSize=12</a>
+      <button class="wenxin_jsonToggle" id="wenxin_galleryJsonToggle" type="button">查看原始数据（JSON）</button>
     </div>
-    <pre class="Cheney_jsonBox Cheney_jsonHidden" id="Cheney_galleryJson">等待请求……</pre>
+    <pre class="wenxin_jsonBox wenxin_jsonHidden" id="wenxin_galleryJson">等待请求……</pre>
 
-    <div class="Cheney_galleryToolbar">
-      <div class="Cheney_categoryChips" id="Cheney_galleryChips"></div>
-      <span class="Cheney_galleryCount" id="Cheney_galleryCount">共 0 条图文</span>
+    <div class="wenxin_galleryToolbar">
+      <div class="wenxin_categoryChips" id="wenxin_galleryChips"></div>
+      <span class="wenxin_galleryCount" id="wenxin_galleryCount">共 0 条图文</span>
     </div>
 
-    <div id="Cheney_galleryList" class="Cheney_galleryGrid">
-      <div class="Cheney_loading">图文加载中……</div>
+    <div id="wenxin_galleryList" class="wenxin_galleryGrid">
+      <div class="wenxin_loading">图文加载中……</div>
     </div>
   </main>
 
-  <footer class="Cheney_footer">
+  <footer class="wenxin_footer">
     <p>姓名：温馨（wenxin） · 学号：24001010328 · 知乎的模仿与制作</p>
   </footer>
 
-  <script src="js/Cheney_gallery.js"></script>
+  <script src="js/wenxin_gallery.js"></script>
 </body>
 </html>

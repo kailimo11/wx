@@ -1,5 +1,5 @@
 {
-  "name": "cheney-zhihu-clone",
+  "name": "wenxin-zhihu-clone",
   "version": "1.0.0",
   "description": "知乎的模仿与制作 - Node.js + Express + MySQL 全栈项目",
   "main": "app.js",

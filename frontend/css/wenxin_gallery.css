@@ -2,11 +2,11 @@
  姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
  文件说明：图文列表页面样式
 */
-.Cheney_jsonHidden {
+.wenxin_jsonHidden {
   display: none;
 }
 
-.Cheney_galleryToolbar {
+.wenxin_galleryToolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,71 +15,71 @@
   margin: 22px 0 18px;
 }
 
-.Cheney_categoryChips {
+.wenxin_categoryChips {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.Cheney_chip {
+.wenxin_chip {
   padding: 7px 16px;
-  border: 1px solid var(--Cheney-line);
+  border: 1px solid var(--wenxin-line);
   border-radius: 999px;
   background: #fff;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
   font-size: 13px;
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.Cheney_chip:hover {
+.wenxin_chip:hover {
   border-color: rgba(0, 102, 255, 0.4);
-  color: var(--Cheney-primary);
+  color: var(--wenxin-primary);
 }
 
-.Cheney_chip.isActive {
-  background: var(--Cheney-primary);
-  border-color: var(--Cheney-primary);
+.wenxin_chip.isActive {
+  background: var(--wenxin-primary);
+  border-color: var(--wenxin-primary);
   color: #fff;
   font-weight: 600;
 }
 
-.Cheney_galleryCount {
+.wenxin_galleryCount {
   font-size: 13px;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
 }
 
-.Cheney_galleryGrid {
+.wenxin_galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   padding-bottom: 10px;
 }
 
-.Cheney_galleryCard {
+.wenxin_galleryCard {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   background: #fff;
-  border: 1px solid var(--Cheney-line);
+  border: 1px solid var(--wenxin-line);
   border-radius: 16px;
   transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
-.Cheney_galleryCard:hover {
+.wenxin_galleryCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 18px 38px rgba(15, 35, 70, 0.14);
 }
 
-.Cheney_galleryImageWrap {
+.wenxin_galleryImageWrap {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: linear-gradient(135deg, #e8f0ff, #f7faff);
 }
 
-.Cheney_galleryImage {
+.wenxin_galleryImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -87,11 +87,11 @@
   transition: transform 0.4s ease;
 }
 
-.Cheney_galleryCard:hover .Cheney_galleryImage {
+.wenxin_galleryCard:hover .wenxin_galleryImage {
   transform: scale(1.06);
 }
 
-.Cheney_galleryCategory {
+.wenxin_galleryCategory {
   position: absolute;
   left: 12px;
   top: 12px;
@@ -104,46 +104,46 @@
   letter-spacing: 0.5px;
 }
 
-.Cheney_galleryBody {
+.wenxin_galleryBody {
   display: flex;
   flex-direction: column;
   flex: 1;
   padding: 18px 20px 16px;
 }
 
-.Cheney_galleryTitle {
+.wenxin_galleryTitle {
   margin: 0 0 8px;
   font-size: 17px;
-  color: var(--Cheney-deep);
+  color: var(--wenxin-deep);
 }
 
-.Cheney_galleryDesc {
+.wenxin_galleryDesc {
   flex: 1;
   margin: 0 0 16px;
   font-size: 13.5px;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
 }
 
-.Cheney_galleryMeta {
+.wenxin_galleryMeta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 12px;
-  border-top: 1px dashed var(--Cheney-line);
+  border-top: 1px dashed var(--wenxin-line);
   font-size: 12.5px;
   color: #9aa3ad;
 }
 
-.Cheney_galleryLikes {
+.wenxin_galleryLikes {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--Cheney-primary);
+  color: var(--wenxin-primary);
   font-weight: 600;
 }
 
 @media (max-width: 720px) {
-  .Cheney_galleryGrid {
+  .wenxin_galleryGrid {
     grid-template-columns: 1fr;
   }
 }

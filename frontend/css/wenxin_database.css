@@ -2,7 +2,7 @@
  姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
  文件说明：数据库连接测试页面样式
 */
-.Cheney_dbLayout {
+.wenxin_dbLayout {
   display: grid;
   grid-template-columns: minmax(320px, 420px) 1fr;
   gap: 22px;
@@ -10,50 +10,50 @@
   align-items: start;
 }
 
-.Cheney_dbForm,
-.Cheney_dbResult {
+.wenxin_dbForm,
+.wenxin_dbResult {
   padding: 26px;
 }
 
-.Cheney_dbFormTitle {
+.wenxin_dbFormTitle {
   margin: 0 0 20px;
   font-size: 17px;
-  color: var(--Cheney-deep);
+  color: var(--wenxin-deep);
 }
 
-#Cheney_dbForm {
+#wenxin_dbForm {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.Cheney_dbActions {
+.wenxin_dbActions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 4px;
 }
 
-.Cheney_dbApi {
+.wenxin_dbApi {
   margin-top: 22px;
 }
 
-.Cheney_dbResultBody {
+.wenxin_dbResultBody {
   margin-top: 18px;
 }
 
-.Cheney_dbSubTitle {
+.wenxin_dbSubTitle {
   margin: 0;
   font-size: 14px;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
 }
 
-#Cheney_dbJson {
+#wenxin_dbJson {
   min-height: 120px;
 }
 
 @media (max-width: 900px) {
-  .Cheney_dbLayout {
+  .wenxin_dbLayout {
     grid-template-columns: 1fr;
   }
 }

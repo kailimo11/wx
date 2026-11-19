@@ -7,7 +7,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 /* 业务连接池 */
-const cheney_pool = mysql.createPool({
+const wenxin_pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -18,8 +18,8 @@ const cheney_pool = mysql.createPool({
 });
 
 /* 使用用户输入的凭据测试连接，返回服务器信息与库表情况 */
-async function cheney_testConnection({ user, password, host, database }) {
-  const cheney_conn = await mysql.createConnection({
+async function wenxin_testConnection({ user, password, host, database }) {
+  const wenxin_conn = await mysql.createConnection({
     host: host || 'localhost',
     user,
     password,
@@ -27,16 +27,16 @@ async function cheney_testConnection({ user, password, host, database }) {
     connectTimeout: 8000
   });
   try {
-    const [cheney_versionRows] = await cheney_conn.query('SELECT VERSION() AS version, DATABASE() AS currentDb');
-    const [cheney_tables] = await cheney_conn.query('SHOW TABLES');
+    const [wenxin_versionRows] = await wenxin_conn.query('SELECT VERSION() AS version, DATABASE() AS currentDb');
+    const [wenxin_tables] = await wenxin_conn.query('SHOW TABLES');
     return {
-      version: cheney_versionRows[0].version,
-      currentDb: cheney_versionRows[0].currentDb,
-      tables: cheney_tables.map((row) => Object.values(row)[0])
+      version: wenxin_versionRows[0].version,
+      currentDb: wenxin_versionRows[0].currentDb,
+      tables: wenxin_tables.map((row) => Object.values(row)[0])
     };
   } finally {
-    await cheney_conn.end();
+    await wenxin_conn.end();
   }
 }
 
-module.exports = { cheney_pool, cheney_testConnection };
+module.exports = { wenxin_pool, wenxin_testConnection };

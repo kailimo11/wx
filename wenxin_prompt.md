@@ -2,7 +2,7 @@
 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
 -->
 
-# 提示词记录（Cheney_prompt.md）
+# 提示词记录（wenxin_prompt.md）
 
 > 记录格式：时间 | 提示词全文 | 大模型名称（一律追加写入，不覆盖历史内容）
 
@@ -23,9 +23,9 @@
 - 后端依赖安装：优先 cnpm i 包名；失败或超时则使用 npm i 包名
 - 数据库：MySQL；凭据写入 backend/.env（DB_USER、DB_PASSWORD、DB_HOST、DB_NAME），不得出现在代码或 AGENTS.md 中，.env 加入 .gitignore
 - 根据后端的要求自行建立和修改数据库表，每张表建立后，插入至少 8 条有真实业务意义的测试数据
-- CSS 类名、JS 变量名、JS 函数名、数据库表名（及字段相关命名）一律以 Cheney_ 开头
+- CSS 类名、JS 变量名、JS 函数名、数据库表名（及字段相关命名）一律以 wenxin_ 开头
 - 每个文件头部包含注释块：姓名：温馨 | 学号：24001010328 | 时间：yyyy-mm-dd | 大模型：{本次使用的大模型名称}
-- 记录文件一律追加写入：Cheney_prompt.md、backend/Cheney_interface.md、backend/Cheney_database.md
+- 记录文件一律追加写入：wenxin_prompt.md、backend/wenxin_interface.md、backend/wenxin_database.md
 - 统一 JSON 响应格式：{ "code": 0, "msg": "提示信息", "data": {...} }
 - 服务器返回的数据和错误信息输出到浏览器控制台；新建 HTML 页面后在 frontend/index.html 追加超链接入口（detail 页面除外）
 ```
@@ -50,6 +50,16 @@
 （四）测试数据库链接：创建 database.html 页面，输入用户名、密码，链接数据库，成功和错误都有提示，默认用户名 root，密码 root。
 （五）完成科技新闻列表页面，新闻数据存在数据库表里，网页显示后端接口链接和数据内容。
 （六）完成图文列表，图片可以使用网络图片或创建图片，创建一个新的表，网页显示后端接口链接和数据内容。
+```
+
+大模型名称：DeepSeek-V4.1-Flash
+
+## 2026-11-19 22:10 | 统一命名前缀为 wenxin_
+
+提示词全文：
+
+```
+CSS 类名、JS 变量名、JS 函数名、数据库表名（及字段相关命名）一律以 `wenxin_` 开头。
 ```
 
 大模型名称：DeepSeek-V4.1-Flash

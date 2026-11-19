@@ -2,7 +2,7 @@
 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
 -->
 
-# 接口记录（Cheney_interface.md）
+# 接口记录（wenxin_interface.md）
 
 > 记录格式：接口路径 | HTTP 方法 | 请求参数（含示例）| 响应格式（含 JSON 示例）| 修改时间
 > 统一响应包裹：`{ "code": 0, "msg": "提示信息", "data": {...} }`，`code=0` 成功，非 0 失败。
@@ -47,7 +47,7 @@
   "user": "root",
   "password": "root",
   "host": "localhost",
-  "database": "cheney_zhihu"
+  "database": "wenxin_zhihu"
 }
 ```
 
@@ -60,9 +60,9 @@
   "data": {
     "api": "/api/db/test",
     "host": "localhost",
-    "database": "cheney_zhihu",
+    "database": "wenxin_zhihu",
     "version": "8.4.6",
-    "tables": ["Cheney_gallery", "Cheney_news"],
+    "tables": ["wenxin_gallery", "wenxin_news"],
     "tableCount": 2
   }
 }

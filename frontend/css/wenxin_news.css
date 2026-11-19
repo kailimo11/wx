@@ -2,11 +2,11 @@
  姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
  文件说明：科技新闻列表页面样式
 */
-.Cheney_jsonHidden {
+.wenxin_jsonHidden {
   display: none;
 }
 
-.Cheney_newsToolbar {
+.wenxin_newsToolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   margin: 22px 0 18px;
 }
 
-.Cheney_newsSearch {
+.wenxin_newsSearch {
   display: flex;
   gap: 10px;
   flex: 1;
@@ -23,84 +23,84 @@
   max-width: 520px;
 }
 
-.Cheney_newsSearch .Cheney_input {
+.wenxin_newsSearch .wenxin_input {
   flex: 1;
   background: #fff;
 }
 
-.Cheney_newsCount {
+.wenxin_newsCount {
   font-size: 13px;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
 }
 
-.Cheney_newsList {
+.wenxin_newsList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   gap: 16px;
 }
 
-.Cheney_newsCard {
+.wenxin_newsCard {
   display: flex;
   flex-direction: column;
   padding: 22px 22px 18px;
   background: #fff;
-  border: 1px solid var(--Cheney-line);
-  border-radius: var(--Cheney-radius);
+  border: 1px solid var(--wenxin-line);
+  border-radius: var(--wenxin-radius);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-.Cheney_newsCard:hover {
+.wenxin_newsCard:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 102, 255, 0.28);
   box-shadow: 0 14px 32px rgba(15, 35, 70, 0.12);
 }
 
-.Cheney_newsTag {
+.wenxin_newsTag {
   align-self: flex-start;
   padding: 3px 10px;
   margin-bottom: 12px;
   border-radius: 6px;
-  background: var(--Cheney-primary-soft);
-  color: var(--Cheney-primary);
+  background: var(--wenxin-primary-soft);
+  color: var(--wenxin-primary);
   font-size: 12px;
   font-weight: 600;
 }
 
-.Cheney_newsTitle {
+.wenxin_newsTitle {
   margin: 0 0 10px;
   font-size: 17px;
   line-height: 1.5;
-  color: var(--Cheney-deep);
+  color: var(--wenxin-deep);
 }
 
-.Cheney_newsSummary {
+.wenxin_newsSummary {
   flex: 1;
   margin: 0 0 18px;
   font-size: 13.5px;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.Cheney_newsMeta {
+.wenxin_newsMeta {
   display: flex;
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
   padding-top: 12px;
-  border-top: 1px dashed var(--Cheney-line);
+  border-top: 1px dashed var(--wenxin-line);
   font-size: 12.5px;
   color: #9aa3ad;
 }
 
-.Cheney_newsMetaSource {
-  color: var(--Cheney-primary);
+.wenxin_newsMetaSource {
+  color: var(--wenxin-primary);
   font-weight: 600;
 }
 
-.Cheney_pager {
+.wenxin_pager {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,39 +109,39 @@
   margin: 28px 0 10px;
 }
 
-.Cheney_pagerBtn {
+.wenxin_pagerBtn {
   min-width: 38px;
   height: 38px;
   padding: 0 12px;
-  border: 1px solid var(--Cheney-line);
+  border: 1px solid var(--wenxin-line);
   border-radius: 9px;
   background: #fff;
-  color: var(--Cheney-text-sub);
+  color: var(--wenxin-text-sub);
   font-size: 13px;
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.Cheney_pagerBtn:hover:not(:disabled) {
-  border-color: var(--Cheney-primary);
-  color: var(--Cheney-primary);
+.wenxin_pagerBtn:hover:not(:disabled) {
+  border-color: var(--wenxin-primary);
+  color: var(--wenxin-primary);
 }
 
-.Cheney_pagerBtn.isActive {
-  background: var(--Cheney-primary);
-  border-color: var(--Cheney-primary);
+.wenxin_pagerBtn.isActive {
+  background: var(--wenxin-primary);
+  border-color: var(--wenxin-primary);
   color: #fff;
   font-weight: 600;
 }
 
-.Cheney_pagerBtn:disabled {
+.wenxin_pagerBtn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
 @media (max-width: 720px) {
-  .Cheney_newsList {
+  .wenxin_newsList {
     grid-template-columns: 1fr;
   }
 }
