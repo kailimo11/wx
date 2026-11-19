@@ -63,3 +63,13 @@ CSS 类名、JS 变量名、JS 函数名、数据库表名（及字段相关命�
 ```
 
 大模型名称：DeepSeek-V4.1-Flash
+
+## 2026-11-19 22:30 | 创建 GitHub 提交技能并推送仓库
+
+提示词全文：
+
+```
+创建技能 skill：提交到 GitHub，将本项目提交 commit 并 push 到 `https://github.com/kailimo11/wx.git`，使用已设置公钥。
+```
+
+大模型名称：DeepSeek-V4.1-Flash
