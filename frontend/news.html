@@ -1,0 +1,63 @@
+<!--
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：科技新闻列表页面（数据来自 Cheney_news 表）
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>科技新闻列表 | 知乎的模仿与制作</title>
+  <link rel="stylesheet" href="css/Cheney_common.css" />
+  <link rel="stylesheet" href="css/Cheney_news.css" />
+</head>
+<body>
+  <header class="Cheney_nav">
+    <div class="Cheney_navBrand">
+      <span class="Cheney_navLogo">知</span>
+      <span>知乎的模仿与制作</span>
+    </div>
+    <nav class="Cheney_navLinks">
+      <a class="Cheney_navLink" href="index.html">首页</a>
+      <a class="Cheney_navLink" href="database.html">数据库测试</a>
+      <a class="Cheney_navLink isActive" href="news.html">科技新闻</a>
+      <a class="Cheney_navLink" href="gallery.html">图文列表</a>
+    </nav>
+  </header>
+
+  <main class="Cheney_container">
+    <div class="Cheney_pageHead">
+      <h1 class="Cheney_pageTitle">科技新闻列表</h1>
+      <p class="Cheney_pageDesc">新闻数据存储在 MySQL 数据库 <strong>Cheney_news</strong> 表中，由后端接口分页返回。</p>
+    </div>
+
+    <div class="Cheney_apiBar">
+      <span class="Cheney_apiMethod">GET</span>
+      <strong>后端接口：</strong>
+      <a class="Cheney_apiLink" id="Cheney_newsApiLink" href="http://localhost:8328/api/news" target="_blank" rel="noopener">http://localhost:8328/api/news?page=1&amp;pageSize=10&amp;keyword=</a>
+      <button class="Cheney_jsonToggle" id="Cheney_newsJsonToggle" type="button">查看原始数据（JSON）</button>
+    </div>
+    <pre class="Cheney_jsonBox Cheney_jsonHidden" id="Cheney_newsJson">等待请求……</pre>
+
+    <div class="Cheney_newsToolbar">
+      <form class="Cheney_newsSearch" id="Cheney_newsSearchForm">
+        <input class="Cheney_input" id="Cheney_newsKeyword" type="search" placeholder="搜索标题 / 摘要 / 来源，例如：芯片" />
+        <button class="Cheney_btn" type="submit">搜索</button>
+      </form>
+      <span class="Cheney_newsCount" id="Cheney_newsCount">共 0 条新闻</span>
+    </div>
+
+    <div id="Cheney_newsList" class="Cheney_newsList">
+      <div class="Cheney_loading">新闻加载中……</div>
+    </div>
+
+    <div class="Cheney_pager" id="Cheney_newsPager"></div>
+  </main>
+
+  <footer class="Cheney_footer">
+    <p>姓名：温馨（wenxin） · 学号：24001010328 · 知乎的模仿与制作</p>
+  </footer>
+
+  <script src="js/Cheney_news.js"></script>
+</body>
+</html>

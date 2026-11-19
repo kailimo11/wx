@@ -1,0 +1,149 @@
+/*
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：图文列表页面样式
+*/
+.Cheney_jsonHidden {
+  display: none;
+}
+
+.Cheney_galleryToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 22px 0 18px;
+}
+
+.Cheney_categoryChips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.Cheney_chip {
+  padding: 7px 16px;
+  border: 1px solid var(--Cheney-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--Cheney-text-sub);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Cheney_chip:hover {
+  border-color: rgba(0, 102, 255, 0.4);
+  color: var(--Cheney-primary);
+}
+
+.Cheney_chip.isActive {
+  background: var(--Cheney-primary);
+  border-color: var(--Cheney-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.Cheney_galleryCount {
+  font-size: 13px;
+  color: var(--Cheney-text-sub);
+}
+
+.Cheney_galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.Cheney_galleryCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--Cheney-line);
+  border-radius: 16px;
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.Cheney_galleryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(15, 35, 70, 0.14);
+}
+
+.Cheney_galleryImageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8f0ff, #f7faff);
+}
+
+.Cheney_galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.Cheney_galleryCard:hover .Cheney_galleryImage {
+  transform: scale(1.06);
+}
+
+.Cheney_galleryCategory {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(10, 26, 48, 0.62);
+  backdrop-filter: blur(4px);
+  color: #eaf3ff;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.Cheney_galleryBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 20px 16px;
+}
+
+.Cheney_galleryTitle {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: var(--Cheney-deep);
+}
+
+.Cheney_galleryDesc {
+  flex: 1;
+  margin: 0 0 16px;
+  font-size: 13.5px;
+  color: var(--Cheney-text-sub);
+}
+
+.Cheney_galleryMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px dashed var(--Cheney-line);
+  font-size: 12.5px;
+  color: #9aa3ad;
+}
+
+.Cheney_galleryLikes {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--Cheney-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .Cheney_galleryGrid {
+    grid-template-columns: 1fr;
+  }
+}

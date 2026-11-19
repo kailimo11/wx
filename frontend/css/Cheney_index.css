@@ -1,0 +1,261 @@
+/*
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：首页样式（深色画布背景、项目信息、页面导航卡片）
+*/
+.Cheney_indexBody {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 20% 0%, #12335c 0%, #08172b 45%, #050e1b 100%);
+  color: #e8f1ff;
+  overflow-x: hidden;
+}
+
+.Cheney_canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.Cheney_indexBody .Cheney_nav {
+  position: relative;
+  z-index: 2;
+  background: rgba(8, 23, 43, 0.6);
+  border-bottom: 1px solid rgba(140, 190, 255, 0.14);
+}
+
+.Cheney_indexBody .Cheney_navBrand {
+  color: #eaf3ff;
+}
+
+.Cheney_indexBody .Cheney_navLink {
+  color: rgba(208, 226, 250, 0.78);
+}
+
+.Cheney_indexBody .Cheney_navLink:hover,
+.Cheney_indexBody .Cheney_navLink.isActive {
+  color: #ffffff;
+  background: rgba(0, 102, 255, 0.28);
+}
+
+.Cheney_indexMain {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 20px;
+}
+
+/* ========== 项目信息 ========== */
+.Cheney_hero {
+  padding: 72px 0 48px;
+  max-width: 880px;
+}
+
+.Cheney_heroBadge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+  background: rgba(0, 102, 255, 0.18);
+  border: 1px solid rgba(102, 163, 255, 0.45);
+  color: #a9ccff;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.Cheney_heroTitle {
+  margin: 0 0 18px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.15;
+  letter-spacing: 1px;
+  background: linear-gradient(120deg, #ffffff 10%, #9dc7ff 55%, #5aa0ff 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.Cheney_heroDesc {
+  margin: 0 0 34px;
+  max-width: 720px;
+  color: rgba(198, 219, 245, 0.82);
+  font-size: 16px;
+}
+
+.Cheney_heroInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.Cheney_infoItem {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(140, 190, 255, 0.16);
+  backdrop-filter: blur(6px);
+}
+
+.Cheney_infoLabel {
+  display: block;
+  font-size: 12px;
+  color: rgba(160, 190, 230, 0.75);
+  letter-spacing: 0.5px;
+}
+
+.Cheney_infoValue {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #eaf4ff;
+}
+
+/* ========== 区块 ========== */
+.Cheney_section {
+  margin-top: 44px;
+}
+
+.Cheney_sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.Cheney_sectionTitle {
+  position: relative;
+  margin: 0;
+  padding-left: 14px;
+  font-size: 20px;
+  color: #f2f8ff;
+}
+
+.Cheney_sectionTitle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 18px;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  background: linear-gradient(180deg, #4d9bff, #0066ff);
+}
+
+.Cheney_sectionHint {
+  font-size: 13px;
+  color: rgba(160, 190, 230, 0.65);
+}
+
+/* ========== 导航卡片 ========== */
+.Cheney_linkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.Cheney_linkCard {
+  position: relative;
+  display: block;
+  padding: 26px 24px 24px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(140, 190, 255, 0.18);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.Cheney_linkCard::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.35), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.Cheney_linkCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(122, 175, 255, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 30, 80, 0.5);
+}
+
+.Cheney_linkCard:hover::after {
+  opacity: 1;
+}
+
+.Cheney_linkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: rgba(0, 102, 255, 0.18);
+  border: 1px solid rgba(102, 163, 255, 0.35);
+  color: #8fc0ff;
+}
+
+.Cheney_linkTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #f0f7ff;
+}
+
+.Cheney_linkDesc {
+  margin: 0 0 18px;
+  font-size: 13.5px;
+  color: rgba(186, 209, 238, 0.8);
+}
+
+.Cheney_linkMore {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7fb4ff;
+}
+
+/* ========== 页面清单 ========== */
+.Cheney_linkList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px 22px;
+  margin: 0;
+  padding: 20px 24px;
+  list-style: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(140, 190, 255, 0.14);
+}
+
+.Cheney_linkList a {
+  display: inline-block;
+  padding: 4px 0;
+  color: rgba(190, 216, 248, 0.9);
+  font-size: 14px;
+  border-bottom: 1px dashed transparent;
+  transition: all 0.2s ease;
+}
+
+.Cheney_linkList a:hover {
+  color: #ffffff;
+  border-bottom-color: rgba(122, 175, 255, 0.6);
+}
+
+.Cheney_indexFooter {
+  position: relative;
+  z-index: 2;
+  color: rgba(150, 180, 215, 0.7);
+}
+
+.Cheney_indexFooter code {
+  background: rgba(255, 255, 255, 0.08);
+  color: #a9ccff;
+}

@@ -1,0 +1,86 @@
+<!--
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：数据库连接测试页面
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据库连接测试 | 知乎的模仿与制作</title>
+  <link rel="stylesheet" href="css/Cheney_common.css" />
+  <link rel="stylesheet" href="css/Cheney_database.css" />
+</head>
+<body>
+  <header class="Cheney_nav">
+    <div class="Cheney_navBrand">
+      <span class="Cheney_navLogo">知</span>
+      <span>知乎的模仿与制作</span>
+    </div>
+    <nav class="Cheney_navLinks">
+      <a class="Cheney_navLink" href="index.html">首页</a>
+      <a class="Cheney_navLink isActive" href="database.html">数据库测试</a>
+      <a class="Cheney_navLink" href="news.html">科技新闻</a>
+      <a class="Cheney_navLink" href="gallery.html">图文列表</a>
+    </nav>
+  </header>
+
+  <main class="Cheney_container">
+    <div class="Cheney_pageHead">
+      <h1 class="Cheney_pageTitle">数据库连接测试</h1>
+      <p class="Cheney_pageDesc">输入 MySQL 账号密码后提交，后端将使用该凭据真实建立连接并返回服务器信息。</p>
+    </div>
+
+    <div class="Cheney_dbLayout">
+      <section class="Cheney_card Cheney_dbForm">
+        <h2 class="Cheney_dbFormTitle">连接参数</h2>
+        <form id="Cheney_dbForm" autocomplete="off">
+          <div class="Cheney_field">
+            <label class="Cheney_label" for="Cheney_dbUser">用户名</label>
+            <input class="Cheney_input" id="Cheney_dbUser" name="user" type="text" value="root" placeholder="请输入数据库用户名" required />
+          </div>
+          <div class="Cheney_field">
+            <label class="Cheney_label" for="Cheney_dbPassword">密码</label>
+            <input class="Cheney_input" id="Cheney_dbPassword" name="password" type="password" value="root" placeholder="请输入数据库密码" required />
+          </div>
+          <div class="Cheney_field">
+            <label class="Cheney_label" for="Cheney_dbHost">主机地址</label>
+            <input class="Cheney_input" id="Cheney_dbHost" name="host" type="text" value="localhost" placeholder="例如 localhost" />
+          </div>
+          <div class="Cheney_field">
+            <label class="Cheney_label" for="Cheney_dbName">数据库名（可选）</label>
+            <input class="Cheney_input" id="Cheney_dbName" name="database" type="text" value="cheney_zhihu" placeholder="例如 cheney_zhihu" />
+          </div>
+          <div class="Cheney_dbActions">
+            <button class="Cheney_btn" id="Cheney_dbSubmit" type="submit">测试连接</button>
+            <button class="Cheney_btn Cheney_btnGhost" id="Cheney_dbReset" type="reset">重置为默认值</button>
+          </div>
+        </form>
+
+        <div class="Cheney_apiBar Cheney_dbApi">
+          <span class="Cheney_apiMethod">POST</span>
+          <strong>接口：</strong>
+          <a class="Cheney_apiLink" id="Cheney_dbApiLink" href="http://localhost:8328/api/db/test" target="_blank" rel="noopener">http://localhost:8328/api/db/test</a>
+        </div>
+      </section>
+
+      <section class="Cheney_card Cheney_dbResult">
+        <h2 class="Cheney_dbFormTitle">连接结果</h2>
+        <div id="Cheney_dbFeedback" class="Cheney_alert Cheney_alertInfo">
+          尚未测试。填写参数后点击「测试连接」，默认账号 root / root。
+        </div>
+        <div class="Cheney_dbResultBody">
+          <h3 class="Cheney_dbSubTitle">服务器返回数据（JSON）</h3>
+          <pre class="Cheney_jsonBox" id="Cheney_dbJson">等待请求……</pre>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="Cheney_footer">
+    <p>姓名：温馨（wenxin） · 学号：24001010328 · 知乎的模仿与制作</p>
+  </footer>
+
+  <script src="js/Cheney_database.js"></script>
+</body>
+</html>

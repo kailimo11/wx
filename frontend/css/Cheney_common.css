@@ -1,0 +1,369 @@
+/*
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-19 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：全站公共样式（导航、容器、卡片、按钮、表单、接口面板）
+*/
+:root {
+  --Cheney-primary: #0066ff;
+  --Cheney-primary-dark: #0052cc;
+  --Cheney-primary-soft: rgba(0, 102, 255, 0.08);
+  --Cheney-deep: #0b1b33;
+  --Cheney-text: #1f2329;
+  --Cheney-text-sub: #61666d;
+  --Cheney-line: #e8ebf0;
+  --Cheney-bg: #f6f8fb;
+  --Cheney-white: #ffffff;
+  --Cheney-radius: 14px;
+  --Cheney-shadow: 0 8px 28px rgba(15, 35, 70, 0.08);
+  --Cheney-font: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--Cheney-font);
+  color: var(--Cheney-text);
+  background: var(--Cheney-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========== 顶部导航 ========== */
+.Cheney_nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 64px;
+  padding: 0 32px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--Cheney-line);
+}
+
+.Cheney_navBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--Cheney-deep);
+}
+
+.Cheney_navLogo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0066ff, #4d9bff);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.Cheney_navLinks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.Cheney_navLink {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--Cheney-text-sub);
+  transition: all 0.2s ease;
+}
+
+.Cheney_navLink:hover {
+  color: var(--Cheney-primary);
+  background: var(--Cheney-primary-soft);
+}
+
+.Cheney_navLink.isActive {
+  color: var(--Cheney-primary);
+  background: var(--Cheney-primary-soft);
+  font-weight: 600;
+}
+
+/* ========== 通用容器 ========== */
+.Cheney_container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.Cheney_pageHead {
+  padding: 40px 0 8px;
+}
+
+.Cheney_pageTitle {
+  margin: 0 0 8px;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+  color: var(--Cheney-deep);
+}
+
+.Cheney_pageDesc {
+  margin: 0;
+  color: var(--Cheney-text-sub);
+  font-size: 14px;
+}
+
+/* ========== 卡片 ========== */
+.Cheney_card {
+  background: var(--Cheney-white);
+  border: 1px solid var(--Cheney-line);
+  border-radius: var(--Cheney-radius);
+  box-shadow: var(--Cheney-shadow);
+}
+
+/* ========== 按钮 ========== */
+.Cheney_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--Cheney-primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Cheney_btn:hover {
+  background: var(--Cheney-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 102, 255, 0.25);
+}
+
+.Cheney_btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.Cheney_btnGhost {
+  background: transparent;
+  color: var(--Cheney-primary);
+  border-color: rgba(0, 102, 255, 0.4);
+}
+
+.Cheney_btnGhost:hover {
+  background: var(--Cheney-primary-soft);
+  box-shadow: none;
+}
+
+/* ========== 表单 ========== */
+.Cheney_field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Cheney_label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--Cheney-text-sub);
+}
+
+.Cheney_input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--Cheney-line);
+  border-radius: 10px;
+  background: #fbfcfe;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--Cheney-text);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.Cheney_input:focus {
+  border-color: var(--Cheney-primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+}
+
+/* ========== 接口链接与数据面板 ========== */
+.Cheney_apiBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #eef4ff;
+  border: 1px dashed rgba(0, 102, 255, 0.35);
+  font-size: 13px;
+  color: var(--Cheney-text-sub);
+}
+
+.Cheney_apiBar strong {
+  color: var(--Cheney-deep);
+}
+
+.Cheney_apiLink {
+  color: var(--Cheney-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-all;
+}
+
+.Cheney_apiMethod {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--Cheney-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.Cheney_jsonBox {
+  margin-top: 12px;
+  padding: 16px;
+  max-height: 320px;
+  overflow: auto;
+  border-radius: 12px;
+  background: #0d1b2a;
+  color: #b9e6ff;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12.5px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.Cheney_jsonToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--Cheney-primary);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ========== 提示消息 ========== */
+.Cheney_alert {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  word-break: break-all;
+}
+
+.Cheney_alertSuccess {
+  background: #e9f9f1;
+  border-color: #b7e9cf;
+  color: #0f8a4d;
+}
+
+.Cheney_alertError {
+  background: #fdecec;
+  border-color: #f6c6c6;
+  color: #c62828;
+}
+
+.Cheney_alertInfo {
+  background: #eef4ff;
+  border-color: #c9dcff;
+  color: #2458b3;
+}
+
+/* ========== 加载与空状态 ========== */
+.Cheney_loading {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--Cheney-text-sub);
+  font-size: 14px;
+}
+
+.Cheney_loading::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: -4px;
+  border: 2px solid rgba(0, 102, 255, 0.2);
+  border-top-color: var(--Cheney-primary);
+  border-radius: 50%;
+  animation: Cheney_spin 0.8s linear infinite;
+}
+
+@keyframes Cheney_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Cheney_empty {
+  padding: 48px 0;
+  text-align: center;
+  color: #9aa3ad;
+  font-size: 14px;
+}
+
+/* ========== 页脚 ========== */
+.Cheney_footer {
+  margin-top: 60px;
+  padding: 28px 0 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #9aa3ad;
+}
+
+.Cheney_footer code {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: #eef1f6;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 720px) {
+  .Cheney_nav {
+    height: auto;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .Cheney_container {
+    width: calc(100% - 32px);
+  }
+
+  .Cheney_pageTitle {
+    font-size: 24px;
+  }
+}
