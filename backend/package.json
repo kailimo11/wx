@@ -13,6 +13,9 @@
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.22.3",
-    "mysql2": "^3.24.6"
+    "multer": "^2.5.0",
+    "mysql2": "^3.24.6",
+    "officeparser": "^8.9.0",
+    "word-extractor": "^1.0.4"
   }
 }

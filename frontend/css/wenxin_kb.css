@@ -1,0 +1,324 @@
+/*
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-23 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：知识库管理与问答页面样式
+*/
+.wenxin_jsonHidden {
+  display: none;
+}
+
+.wenxin_kbUpload,
+.wenxin_kbFiles,
+.wenxin_kbAsk {
+  margin-top: 20px;
+  padding: 24px;
+}
+
+.wenxin_kbSectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.wenxin_kbHeadRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--wenxin-text-sub);
+}
+
+.wenxin_kbTitle {
+  margin: 0;
+  font-size: 17px;
+  color: var(--wenxin-deep);
+}
+
+.wenxin_kbSubTitle {
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  color: var(--wenxin-deep);
+}
+
+.wenxin_kbHint {
+  font-size: 12.5px;
+  color: #9aa3ad;
+}
+
+/* ========== 上传区 ========== */
+.wenxin_dropZone {
+  position: relative;
+  padding: 30px 20px;
+  border: 2px dashed #c9d9f2;
+  border-radius: 14px;
+  background: #f8fbff;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wenxin_dropZone:hover,
+.wenxin_dropZone.isDragOver {
+  border-color: var(--wenxin-primary);
+  background: #eef4ff;
+}
+
+.wenxin_fileInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.wenxin_dropInner {
+  pointer-events: none;
+}
+
+.wenxin_dropIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--wenxin-primary);
+}
+
+.wenxin_dropText {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--wenxin-deep);
+}
+
+.wenxin_dropSub {
+  margin: 0;
+  font-size: 12.5px;
+  color: #9aa3ad;
+}
+
+.wenxin_uploadBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+
+.wenxin_fileName {
+  font-size: 13.5px;
+  color: var(--wenxin-text-sub);
+  word-break: break-all;
+}
+
+/* ========== 表格 ========== */
+.wenxin_tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--wenxin-line);
+  border-radius: 12px;
+}
+
+.wenxin_table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.wenxin_table th {
+  padding: 12px 14px;
+  background: #f6f8fb;
+  color: var(--wenxin-text-sub);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.wenxin_table td {
+  padding: 12px 14px;
+  border-top: 1px solid var(--wenxin-line);
+  color: var(--wenxin-text);
+  vertical-align: middle;
+}
+
+.wenxin_table tr:hover td {
+  background: #fafcff;
+}
+
+.wenxin_tableEmpty {
+  text-align: center;
+  color: #9aa3ad;
+  padding: 30px 0 !important;
+}
+
+.wenxin_fileCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--wenxin-deep);
+}
+
+.wenxin_extTag {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--wenxin-primary-soft);
+  color: var(--wenxin-primary);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.wenxin_rowActions {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.wenxin_miniBtn {
+  padding: 5px 10px;
+  border: 1px solid var(--wenxin-line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--wenxin-text-sub);
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wenxin_miniBtn:hover {
+  border-color: var(--wenxin-primary);
+  color: var(--wenxin-primary);
+}
+
+.wenxin_miniBtnDanger:hover {
+  border-color: #e05252;
+  color: #e05252;
+}
+
+/* ========== 分块面板 ========== */
+.wenxin_chunkPanel {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--wenxin-line);
+  border-radius: 12px;
+  background: #fbfcff;
+}
+
+.wenxin_chunkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.wenxin_chunkItem {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--wenxin-line);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--wenxin-text-sub);
+  white-space: pre-wrap;
+}
+
+.wenxin_chunkItem strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--wenxin-primary);
+  font-size: 12.5px;
+}
+
+/* ========== 问答区 ========== */
+.wenxin_askBar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.wenxin_askBar .wenxin_input {
+  flex: 1;
+  min-width: 220px;
+  background: #fff;
+}
+
+.wenxin_topKSelect {
+  flex: 0 0 auto;
+  width: 150px;
+  cursor: pointer;
+}
+
+.wenxin_answerBox {
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #f7faff;
+  border: 1px solid #e2ecfb;
+}
+
+.wenxin_answerText {
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--wenxin-text);
+  white-space: pre-wrap;
+}
+
+.wenxin_sourcesTitle {
+  margin-top: 18px;
+}
+
+.wenxin_sources {
+  display: grid;
+  gap: 10px;
+}
+
+.wenxin_sourceCard {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--wenxin-line);
+}
+
+.wenxin_sourceHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  color: var(--wenxin-primary);
+  font-weight: 600;
+}
+
+.wenxin_sourceContent {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--wenxin-text-sub);
+  white-space: pre-wrap;
+}
+
+@media (max-width: 720px) {
+  .wenxin_kbUpload,
+  .wenxin_kbFiles,
+  .wenxin_kbAsk {
+    padding: 16px;
+  }
+
+  .wenxin_askBar .wenxin_input {
+    min-width: 100%;
+  }
+
+  .wenxin_topKSelect {
+    width: 100%;
+  }
+}

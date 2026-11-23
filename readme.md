@@ -50,9 +50,17 @@
 | 数据库连接测试 | `/database.html` | `POST /api/db/test` |
 | 科技新闻列表 | `/news.html` | `GET /api/news` |
 | 图文列表 | `/gallery.html` | `GET /api/gallery` |
+| AI 聊天 | `/chat.html` | `POST /api/chat` |
+| 知识库管理与问答 | `/knowledge.html` | `GET /api/kb/files`、`POST /api/kb/upload`、`DELETE /api/kb/files/:id`、`GET /api/kb/files/:id/chunks`、`POST /api/kb/ask` |
 
 ## 数据库
 
 - 库名：`wenxin_zhihu`，字符集 `utf8mb4`
-- 数据表：`wenxin_news`（科技新闻，10 条测试数据）、`wenxin_gallery`（图文列表，8 条测试数据）
+- 数据表：`wenxin_news`（科技新闻，10 条测试数据）、`wenxin_gallery`（图文列表，8 条测试数据）、`wenxin_kb_files`（知识库文件，2 个示例文件）、`wenxin_kb_chunks`（知识库分块，10 条）
 - 建库、建表与测试数据语句见 `backend/wenxin_database.md`
+
+## 知识库（RAG）
+
+- 示例知识库文件：`backend/knowledge/wenxin_客服FAQ.txt`、`backend/knowledge/wenxin_产品与服务说明.docx`
+- 支持格式：txt、md、pdf、doc、docx、ppt、pptx、csv、rtf
+- 流程：上传 → 解析文本 → 按 320 字切分（重叠 60 字）入库 → 提问时关键词打分检索 TopK → 拼接资料交给大模型作答并返回引用来源

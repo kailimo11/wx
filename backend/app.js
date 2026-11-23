@@ -10,6 +10,8 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const wenxin_newsRoutes = require('./routes/wenxin_newsRoutes');
 const wenxin_galleryRoutes = require('./routes/wenxin_galleryRoutes');
 const wenxin_dbRoutes = require('./routes/wenxin_dbRoutes');
+const wenxin_chatRoutes = require('./routes/wenxin_chatRoutes');
+const wenxin_kbRoutes = require('./routes/wenxin_kbRoutes');
 
 const wenxin_app = express();
 const wenxin_PORT = 8328;
@@ -33,6 +35,8 @@ wenxin_app.get('/api/health', (req, res) => {
 wenxin_app.use('/api/news', wenxin_newsRoutes);
 wenxin_app.use('/api/gallery', wenxin_galleryRoutes);
 wenxin_app.use('/api/db', wenxin_dbRoutes);
+wenxin_app.use('/api/chat', wenxin_chatRoutes);
+wenxin_app.use('/api/kb', wenxin_kbRoutes);
 
 /* 404 处理 */
 wenxin_app.use((req, res) => {

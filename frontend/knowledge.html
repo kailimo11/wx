@@ -1,0 +1,155 @@
+<!--
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-23 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：知识库管理（上传/解析/删除）与基于知识库的问答页面
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>知识库管理与问答 | 知乎的模仿与制作</title>
+  <link rel="stylesheet" href="css/wenxin_common.css" />
+  <link rel="stylesheet" href="css/wenxin_kb.css" />
+</head>
+<body>
+  <header class="wenxin_nav">
+    <div class="wenxin_navBrand">
+      <span class="wenxin_navLogo">知</span>
+      <span>知乎的模仿与制作</span>
+    </div>
+    <nav class="wenxin_navLinks">
+      <a class="wenxin_navLink" href="index.html">首页</a>
+      <a class="wenxin_navLink" href="database.html">数据库测试</a>
+      <a class="wenxin_navLink" href="news.html">科技新闻</a>
+      <a class="wenxin_navLink" href="gallery.html">图文列表</a>
+      <a class="wenxin_navLink" href="chat.html">AI 聊天</a>
+      <a class="wenxin_navLink isActive" href="knowledge.html">知识库问答</a>
+    </nav>
+  </header>
+
+  <main class="wenxin_container">
+    <div class="wenxin_pageHead">
+      <h1 class="wenxin_pageTitle">知识库管理与问答（RAG）</h1>
+      <p class="wenxin_pageDesc">上传本地文档（支持 txt / md / pdf / doc / docx / ppt / pptx / csv / rtf），后端自动解析并分块入库，提问时先检索知识库再交给大模型作答。</p>
+    </div>
+
+    <!-- 上传模块 -->
+    <section class="wenxin_card wenxin_kbUpload">
+      <div class="wenxin_kbSectionHead">
+        <h2 class="wenxin_kbTitle">知识库文件上传</h2>
+        <span class="wenxin_kbHint">单个文件不超过 20MB</span>
+      </div>
+
+      <div class="wenxin_dropZone" id="wenxin_dropZone">
+        <input class="wenxin_fileInput" id="wenxin_fileInput" type="file"
+               accept=".txt,.md,.pdf,.doc,.docx,.ppt,.pptx,.csv,.rtf" />
+        <div class="wenxin_dropInner">
+          <span class="wenxin_dropIcon">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 16V4"></path>
+              <path d="M7 9l5-5 5 5"></path>
+              <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path>
+            </svg>
+          </span>
+          <p class="wenxin_dropText">点击选择文件，或把文件拖到这里</p>
+          <p class="wenxin_dropSub">支持 doc、docx、ppt、pptx、pdf、txt 等格式</p>
+        </div>
+      </div>
+
+      <div class="wenxin_uploadBar">
+        <span class="wenxin_fileName" id="wenxin_fileName">尚未选择文件</span>
+        <button class="wenxin_btn" id="wenxin_uploadBtn" type="button" disabled>上传并解析</button>
+      </div>
+
+      <div class="wenxin_alert wenxin_alertInfo" id="wenxin_uploadMsg">等待上传文件。</div>
+
+      <div class="wenxin_apiBar">
+        <span class="wenxin_apiMethod">POST</span>
+        <strong>上传接口：</strong>
+        <a class="wenxin_apiLink" href="http://localhost:8328/api/kb/upload" target="_blank" rel="noopener">http://localhost:8328/api/kb/upload</a>
+        <button class="wenxin_jsonToggle" id="wenxin_uploadJsonToggle" type="button">查看上传结果（JSON）</button>
+      </div>
+      <pre class="wenxin_jsonBox wenxin_jsonHidden" id="wenxin_uploadJson">等待请求……</pre>
+    </section>
+
+    <!-- 文件管理 -->
+    <section class="wenxin_card wenxin_kbFiles">
+      <div class="wenxin_kbSectionHead">
+        <h2 class="wenxin_kbTitle">知识库文件管理</h2>
+        <div class="wenxin_kbHeadRight">
+          <span class="wenxin_kbHint" id="wenxin_fileSummary">共 0 个文件</span>
+          <span class="wenxin_apiMethod">GET</span>
+          <a class="wenxin_apiLink" href="http://localhost:8328/api/kb/files" target="_blank" rel="noopener">/api/kb/files</a>
+        </div>
+      </div>
+
+      <div class="wenxin_tableWrap">
+        <table class="wenxin_table">
+          <thead>
+            <tr>
+              <th>文件名</th>
+              <th>类型</th>
+              <th>大小</th>
+              <th>字符数</th>
+              <th>分块数</th>
+              <th>上传时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="wenxin_fileTableBody">
+            <tr><td colspan="7" class="wenxin_tableEmpty">文件加载中……</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="wenxin_chunkPanel wenxin_jsonHidden" id="wenxin_chunkPanel">
+        <div class="wenxin_kbSectionHead">
+          <h3 class="wenxin_kbSubTitle" id="wenxin_chunkTitle">分块内容</h3>
+          <button class="wenxin_btn wenxin_btnGhost" id="wenxin_chunkClose" type="button">收起</button>
+        </div>
+        <div id="wenxin_chunkList" class="wenxin_chunkList"></div>
+      </div>
+    </section>
+
+    <!-- 问答 -->
+    <section class="wenxin_card wenxin_kbAsk">
+      <div class="wenxin_kbSectionHead">
+        <h2 class="wenxin_kbTitle">知识库问答</h2>
+        <span class="wenxin_kbHint">检索 → 拼接资料 → 大模型作答</span>
+      </div>
+
+      <div class="wenxin_askBar">
+        <input class="wenxin_input" id="wenxin_questionInput" type="text" placeholder="例如：退货后多久能退款？" />
+        <select class="wenxin_input wenxin_topKSelect" id="wenxin_topK">
+          <option value="2">引用 2 段资料</option>
+          <option value="4" selected>引用 4 段资料</option>
+          <option value="6">引用 6 段资料</option>
+        </select>
+        <button class="wenxin_btn" id="wenxin_askBtn" type="button">提问</button>
+      </div>
+
+      <div class="wenxin_apiBar">
+        <span class="wenxin_apiMethod">POST</span>
+        <strong>问答接口：</strong>
+        <a class="wenxin_apiLink" href="http://localhost:8328/api/kb/ask" target="_blank" rel="noopener">http://localhost:8328/api/kb/ask</a>
+        <button class="wenxin_jsonToggle" id="wenxin_askJsonToggle" type="button">查看问答请求/响应（JSON）</button>
+      </div>
+
+      <div class="wenxin_answerBox wenxin_jsonHidden" id="wenxin_answerBox">
+        <h3 class="wenxin_kbSubTitle">大模型回答</h3>
+        <div class="wenxin_answerText" id="wenxin_answerText"></div>
+        <h3 class="wenxin_kbSubTitle wenxin_sourcesTitle">引用来源</h3>
+        <div class="wenxin_sources" id="wenxin_sources"></div>
+      </div>
+
+      <pre class="wenxin_jsonBox wenxin_jsonHidden" id="wenxin_askJson">等待请求……</pre>
+    </section>
+  </main>
+
+  <footer class="wenxin_footer">
+    <p>姓名：温馨（wenxin） · 学号：24001010328 · 知乎的模仿与制作</p>
+  </footer>
+
+  <script src="js/wenxin_knowledge.js"></script>
+</body>
+</html>

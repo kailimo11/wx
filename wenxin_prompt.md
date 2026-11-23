@@ -73,3 +73,36 @@ CSS 类名、JS 变量名、JS 函数名、数据库表名（及字段相关命�
 ```
 
 大模型名称：DeepSeek-V4.1-Flash
+
+## 2026-11-23 13:40 | 创建 AI 聊天页面
+
+提示词全文（API Key 已脱敏为 `sk-***`）：
+
+```
+创建AI聊天页面。
+Api-key：sk-***
+curl --request POST \
+  --url `https://api.siliconflow.cn/v1/chat/completions` \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "messages": [
+      {"role": "system", "content": "你是一个有用的助手"},
+      {"role": "user", "content": "你好，请介绍一下你自己"}
+    ]
+  }'
+在控制台里输出发送给大模型的数据和从大模型接收到的数据。
+```
+
+大模型名称：DeepSeek-V4.1-Flash
+
+## 2026-11-23 14:30 | 完成知识库文件上传与 RAG 问答
+
+提示词全文：
+
+```
+完成知识库文件上传功能，构建2个知识库文件，完成基于知识库的问答，支持doc和docx, ppt，完成知识库管理（RAG）：基于本地文件（如 PDF/TXT）上传、解析，构建专属自动客服或问答系统，包括知识库文件上传模块。在控制台输出发送给大模型的数据和接受自大模型的数据。
+```
+
+大模型名称：DeepSeek-V4.1-Flash

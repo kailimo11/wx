@@ -1,0 +1,75 @@
+<!--
+ 姓名：温馨 | 学号：24001010328 | 时间：2026-11-23 | 大模型：DeepSeek-V4.1-Flash
+ 文件说明：AI 聊天页面（服务端代理硅基流动大模型接口）
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 聊天 | 知乎的模仿与制作</title>
+  <link rel="stylesheet" href="css/wenxin_common.css" />
+  <link rel="stylesheet" href="css/wenxin_chat.css" />
+</head>
+<body>
+  <header class="wenxin_nav">
+    <div class="wenxin_navBrand">
+      <span class="wenxin_navLogo">知</span>
+      <span>知乎的模仿与制作</span>
+    </div>
+    <nav class="wenxin_navLinks">
+      <a class="wenxin_navLink" href="index.html">首页</a>
+      <a class="wenxin_navLink" href="database.html">数据库测试</a>
+      <a class="wenxin_navLink" href="news.html">科技新闻</a>
+      <a class="wenxin_navLink" href="gallery.html">图文列表</a>
+      <a class="wenxin_navLink isActive" href="chat.html">AI 聊天</a>
+      <a class="wenxin_navLink" href="knowledge.html">知识库问答</a>
+    </nav>
+  </header>
+
+  <main class="wenxin_container">
+    <div class="wenxin_pageHead">
+      <h1 class="wenxin_pageTitle">AI 聊天</h1>
+      <p class="wenxin_pageDesc">由后端代理调用硅基流动大模型，密钥仅保存在 <code>backend/.env</code>，请求与响应数据同时输出到浏览器控制台。</p>
+    </div>
+
+    <div class="wenxin_apiBar">
+      <span class="wenxin_apiMethod">POST</span>
+      <strong>后端接口：</strong>
+      <a class="wenxin_apiLink" href="http://localhost:8328/api/chat" target="_blank" rel="noopener">http://localhost:8328/api/chat</a>
+      <span class="wenxin_chatModel">模型：deepseek-ai/DeepSeek-V4-Flash</span>
+      <button class="wenxin_jsonToggle" id="wenxin_chatJsonToggle" type="button">查看最近一次请求/响应（JSON）</button>
+    </div>
+
+    <section class="wenxin_chatPanel">
+      <div class="wenxin_chatMessages" id="wenxin_chatMessages">
+        <div class="wenxin_msg wenxin_msgAssistant">
+          <div class="wenxin_msgAvatar">AI</div>
+          <div class="wenxin_msgBubble">
+            <div class="wenxin_msgContent">你好，我是本项目接入的 AI 助手，可以问我任何问题。发送消息后，浏览器控制台会打印发送给大模型和从大模型接收到的完整数据。</div>
+            <div class="wenxin_msgTime">系统提示</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wenxin_chatInputBar">
+        <textarea class="wenxin_chatInput" id="wenxin_chatInput" rows="2" placeholder="输入消息，Enter 发送，Shift + Enter 换行"></textarea>
+        <div class="wenxin_chatActions">
+          <button class="wenxin_btn wenxin_btnGhost" id="wenxin_chatClear" type="button">清空对话</button>
+          <button class="wenxin_btn" id="wenxin_chatSend" type="button">发送</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="wenxin_chatJsonWrap">
+      <pre class="wenxin_jsonBox wenxin_jsonHidden" id="wenxin_chatJson">等待请求……</pre>
+    </div>
+  </main>
+
+  <footer class="wenxin_footer">
+    <p>姓名：温馨（wenxin） · 学号：24001010328 · 知乎的模仿与制作</p>
+  </footer>
+
+  <script src="js/wenxin_chat.js"></script>
+</body>
+</html>

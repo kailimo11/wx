@@ -94,3 +94,73 @@ DROP DATABASE `cheney_zhihu`;
 
 > 迁移结果：`wenxin_zhihu` 库下 `wenxin_news` 10 条、`wenxin_gallery` 8 条，数据完整。
 
+## 2026-11-23 14:10 新建知识库表（wenxin_kb_files / wenxin_kb_chunks）
+
+```sql
+USE `wenxin_zhihu`;
+
+-- 知识库文件表
+CREATE TABLE IF NOT EXISTS `wenxin_kb_files` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '文件ID',
+  `original_name` VARCHAR(255) NOT NULL COMMENT '原始文件名',
+  `file_name` VARCHAR(255) NOT NULL COMMENT '服务器存储文件名',
+  `ext` VARCHAR(20) NOT NULL COMMENT '扩展名',
+  `mime_type` VARCHAR(120) NOT NULL DEFAULT '' COMMENT 'MIME 类型',
+  `file_size` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '文件字节数',
+  `char_count` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '解析字符数',
+  `chunk_count` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '分块数量',
+  `status` VARCHAR(20) NOT NULL DEFAULT 'ready' COMMENT '状态',
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上传时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='知识库文件表';
+
+-- 知识库文本分块表
+CREATE TABLE IF NOT EXISTS `wenxin_kb_chunks` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '分块ID',
+  `file_id` INT UNSIGNED NOT NULL COMMENT '所属文件ID',
+  `chunk_index` INT UNSIGNED NOT NULL COMMENT '分块序号（从 0 开始）',
+  `content` TEXT NOT NULL COMMENT '分块文本',
+  `char_count` INT UNSIGNED NOT NULL DEFAULT 0 COMMENT '分块字符数',
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_wenxin_chunk_file` (`file_id`),
+  CONSTRAINT `fk_wenxin_chunk_file` FOREIGN KEY (`file_id`) REFERENCES `wenxin_kb_files` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='知识库文本分块表';
+```
+
+
+
+## 2026-11-23 14:30 知识库示例文件与分块数据（2 个文件、10 个分块）
+
+```sql
+USE `wenxin_zhihu`;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+/*!40000 ALTER TABLE wenxin_kb_files DISABLE KEYS */;
+INSERT INTO wenxin_kb_files (id, original_name, file_name, ext, mime_type, file_size, char_count, chunk_count, status, created_at) VALUES (1,'wenxin_客服FAQ.txt','wenxin_kb_1795413550807_734770.txt','.txt','application/octet-stream',3194,1258,5,'ready','2026-11-23 13:59:10'),(2,'wenxin_产品与服务说明.docx','wenxin_kb_1795413550903_544118.docx','.docx','application/octet-stream',5901,1340,5,'ready','2026-11-23 13:59:11');
+/*!40000 ALTER TABLE wenxin_kb_files ENABLE KEYS */;
+
+/*!40000 ALTER TABLE wenxin_kb_chunks DISABLE KEYS */;
+INSERT INTO wenxin_kb_chunks (id, file_id, chunk_index, content, char_count, created_at) VALUES (1,1,0,'温馨智联 · 客服常见问题（FAQ）\n更新日期：2026-11-23\n一、发货与物流\n1. 下单后多久发货？\n现货商品在付款后 24 小时内安排出库，预售商品以商品页标注的发货时间为准。遇大促期间订单量较大，发货可能顺延 1 至 2 天。\n2. 支持哪些配送方式？\n默认使用顺丰速运或京东物流，偏远地区（新疆、西藏、内蒙古部分区域）改用邮政 EMS。下单时可在结算页选择\"普通配送\"或\"次日达\"，次日达需在当日 16:00 前下单。\n3. 运费怎么计算？\n单笔订单满 99 元包邮，未满 99 元收取 8 元运费；偏远地区统一收取 15 元运费。会员等级达到 V3 及以上享受全场包邮。',293,'2026-11-23 13:59:10'),(2,1,1,'二、退换货与售后\n4. 七天无理由退货的条件是什么？\n商品签收之日起 7 天内，商品未使用、配件齐全、包装完好且不影响二次销售，可申请无理由退货。定制类、贴身类商品及已激活的软件授权不支持无理由退货。\n5. 退货后多久退款？\n仓库验收通过后 1 至 3 个工作日内原路退回。银行卡支付一般 3 至 7 个工作日到账，第三方支付（微信、支付宝）通常 24 小时内到账。\n6. 商品出现质量问题怎么办？\n签收后 15 天内出现非人为损坏的性能故障，可申请换新；超过 15 天进入保修流程。请在\"我的订单-申请售后\"中上传故障照片或视频，客服会在 24 小时内响应。',280,'2026-11-23 13:59:10'),(3,1,2,'7. 保修期是多久？\n主机类商品保修 12 个月，电池及易损件保修 6 个月，配件保修 3 个月。保修期内非人为损坏免费维修，人为损坏只收取零件成本费。\n三、发票与支付\n8. 可以开具发票吗？\n支持开具电子普通发票和增值税专用发票。电子发票在订单完成后 24 小时内发送至预留邮箱；专用发票需提供公司名称、税号、开户行及账号，审核通过后 3 个工作日内开出。\n9. 支持哪些支付方式？\n支持微信支付、支付宝、银联卡、云闪付及花呗分期（3 期、6 期、12 期）。企业客户可申请对公转账，到账后 1 个工作日内发货。',257,'2026-11-23 13:59:10'),(4,1,3,'四、会员与优惠\n10. 会员积分怎么获得和使用？\n每消费 1 元累计 1 积分，评价晒单额外奖励 20 积分。100 积分可抵扣 1 元，单笔订单最多抵扣订单金额的 10%。\n11. 优惠券可以叠加使用吗？\n同一订单最多使用 1 张平台券和 1 张店铺券，二者可叠加；同类优惠券不可叠加。优惠券过期后不予补发。\n五、服务与联系\n12. 如何联系人工客服？\n服务时间每天 9:00 至 21:00。可拨打客服热线 400-800-1234，或在 App 内点击\"我的-在线客服\"转人工。非服务时间可留言，次日 10:00 前回复。',264,'2026-11-23 13:59:10'),(5,1,4,'13. 可以修改收货地址吗？\n订单未发货前可在订单详情页自行修改地址；已发货订单需联系客服拦截，拦截成功后退回运费由用户承担。\n14. 是否提供上门安装服务？\n大家电及智能家居套装支持付费上门安装，安装费 99 元起，具体以商品页说明为准。安装服务由合作服务商提供，预约后 48 小时内上门。',146,'2026-11-23 13:59:10'),(6,2,0,'温馨智联智能客服系统 · 产品与服务说明\n一、产品定位\n温馨智联智能客服系统是一套面向中小企业的知识库问答解决方案，帮助企业把产品手册、售后政策、常见问题等文档沉淀为可检索的知识库，并通过大模型实现 7×24 小时的自动客服应答。\n二、主要功能\n1. 知识库文件上传：支持 txt、md、pdf、doc、docx、ppt、pptx、csv、rtf 等格式，上传后自动解析并切分为文本分块。\n2. 知识库管理：查看文件字符数、分块数量，支持删除文件并级联清理分块，支持查看每个分块的原文内容。\n3. 智能问答：用户提问后先检索知识库中最相关的分块，再把资料与问题一起交给大模型生成回答，并标注引用来源。\n4. 会话记录：问答请求与模型响应数据',320,'2026-11-23 13:59:11'),(7,2,1,'检索知识库中最相关的分块，再把资料与问题一起交给大模型生成回答，并标注引用来源。\n4. 会话记录：问答请求与模型响应数据均输出到浏览器控制台，便于调试与验收。\n三、版本与价格\n- 基础版：包含 1 个知识库、50 个文件、每月 3000 次问答，价格 399 元/月。\n- 专业版：包含 5 个知识库、500 个文件、每月 20000 次问答，价格 1299 元/月。\n- 企业版：知识库数量不限，支持私有化部署与专属模型，价格需联系商务报价。\n所有版本均提供 14 天免费试用，试用期结束后数据保留 30 天。\n四、技术规格\n- 后端：Node.js + Express，接口统一以 /api 为前缀，默认端口 8328。\n- 数据库：M',320,'2026-11-23 13:59:11'),(8,2,2,'术规格\n- 后端：Node.js + Express，接口统一以 /api 为前缀，默认端口 8328。\n- 数据库：MySQL 8.0 及以上，字符集 utf8mb4。\n- 前端：原生 HTML、CSS、JavaScript，不依赖第三方框架。\n- 模型：默认使用 deepseek-ai/DeepSeek-V4-Flash，可通过环境变量 AI_MODEL 更换。\n- 单文件大小上限 20MB，单次上传解析耗时通常在 3 秒以内。\n五、数据与安全\n1. 用户上传的原始文件保存在服务器 uploads 目录，数据库仅保存文件名与分块文本。\n2. 接口密钥保存在服务端 .env 文件，前端不接触密钥。\n3. 删除知识库文件时，其对应分',320,'2026-11-23 13:59:11'),(9,2,3,'仅保存文件名与分块文本。\n2. 接口密钥保存在服务端 .env 文件，前端不接触密钥。\n3. 删除知识库文件时，其对应分块通过外键级联删除，避免残留数据。\n4. 企业版支持数据本地化部署，所有数据不出企业内网。\n六、部署要求\n- 操作系统：Windows 10 及以上或主流 Linux 发行版。\n- 运行环境：Node.js 18 及以上（推荐 20 或更高）。\n- 数据库：MySQL 8.0，需提前创建数据库并按文档导入表结构。\n- 网络：服务器需能访问大模型接口域名 api.siliconflow.cn。\n七、服务与支持\n- 工作日 9:00-18:00 提供在线技术支持，紧急问题可拨打 400-800-1234。\n- 基础版提',320,'2026-11-23 13:59:11'),(10,2,4,'服务与支持\n- 工作日 9:00-18:00 提供在线技术支持，紧急问题可拨打 400-800-1234。\n- 基础版提供邮件支持，响应时间 1 个工作日内；专业版及以上提供专属技术顾问，响应时间 2 小时内。\n- 版本升级：每季度发布一次功能更新，安全补丁随发现随修复。\n八、常见限制\n1. 扫描版 PDF 若没有文字层，需要先做 OCR 再上传。\n2. 老版 .doc 与 .ppt 文件的解析效果弱于 .docx 与 .pptx，建议转换后再上传。\n3. 图片、图表中的文字不会被自动识别，除非文件本身带有文字层。\n4. 知识库检索基于关键词匹配，问题表述与文档用词差异过大时可能召回不到内容。',300,'2026-11-23 13:59:11');
+/*!40000 ALTER TABLE wenxin_kb_chunks ENABLE KEYS */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+```
